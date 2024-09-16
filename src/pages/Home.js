@@ -20,7 +20,7 @@ function Home() {
           Welcome to My Personal homepage
         </Typography>
         <Typography variant="h5">
-          I'm a Computer Science Graduate passionate about technology.
+          I'm a Computer Science Graduate .
         </Typography>
       </motion.div>
     </Container>
