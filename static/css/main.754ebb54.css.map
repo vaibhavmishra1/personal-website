@@ -1,1 +1,1 @@
-{"version":3,"file":"static/css/main.754ebb54.css","mappings":"AACA,KACI,QAAS,CACT,SACF","sources":["assets/styles.css"],"sourcesContent":["/* assets/styles.css */\nbody {\n    margin: 0;\n    padding: 0;\n  }"],"names":[],"sourceRoot":""}
+{"version":3,"file":"static/css/main.754ebb54.css","mappings":"AAEA,KACI,QAAS,CACT,SACF","sources":["assets/styles.css"],"sourcesContent":["/* assets/styles.css */\n\nbody {\n    margin: 0;\n    padding: 0;\n  }"],"names":[],"sourceRoot":""}
