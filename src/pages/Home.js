@@ -17,7 +17,7 @@ function Home() {
         <meta name="description" content="Welcome to my personal homepage." />
       </Helmet>
         <Typography variant="h3" gutterBottom>
-          Welcome to My Personal Website
+          Welcome to My Personal homepage
         </Typography>
         <Typography variant="h5">
           I'm a Computer Science Graduate passionate about technology.
