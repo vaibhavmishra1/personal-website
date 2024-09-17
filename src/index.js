@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import './assets/styles.css';
+
 const theme = createTheme({
   palette: {
     primary: {
