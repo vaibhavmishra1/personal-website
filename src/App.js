@@ -11,21 +11,26 @@ import Hobbies from './pages/Hobbies';
 import WorkProfile from './pages/WorkProfile';
 import Contact from './pages/Contact';
 import { AnimatePresence } from 'framer-motion';
+
+import './App.css';
+
 function App() {
   return (
     <Router>
-      <Navbar />
-      <AnimatePresence exitBeforeEnter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/hobbies" element={<Hobbies />} />
-          <Route path="/work-profile" element={<WorkProfile />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </AnimatePresence>
+      {/* <Navbar /> */}
+      <main style={{ paddingTop: '100px' }}> {/* Add padding to prevent overlap */}
+        <AnimatePresence mode="wait">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/hobbies" element={<Hobbies />} />
+            <Route path="/work-profile" element={<WorkProfile />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </AnimatePresence>
+      </main>
       <Footer />
     </Router>
   );

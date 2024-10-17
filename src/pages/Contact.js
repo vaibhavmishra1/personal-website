@@ -1,20 +1,19 @@
-// pages/Contact.js
+// WorkProfile.js
 import React from 'react';
-import { Container, Typography, TextField, Button, Box } from '@mui/material';
+import { Typography, Box } from '@mui/material';
 
 function Contact() {
   return (
-    <Container sx={{ mt: 4 }}>
-      <Typography variant="h4" gutterBottom>
-        Contact Me
+    <Box sx={{ color: '#fff' }}>
+      <Typography variant="h6">My Work Experience</Typography>
+      {/* Add your work experience content here */}
+      <Typography variant="body1">
+        - Data Scientist at XYZ Company
+        <br />
+        - AI Researcher at ABC Labs
+        {/* ...more content */}
       </Typography>
-      <Box component="form" sx={{ mt: 2 }}>
-        <TextField label="Name" variant="outlined" fullWidth sx={{ mb: 2 }} />
-        <TextField label="Email" variant="outlined" fullWidth sx={{ mb: 2 }} />
-        <TextField label="Message" variant="outlined" multiline rows={4} fullWidth sx={{ mb: 2 }} />
-        <Button variant="contained" color="primary">Send Message</Button>
-      </Box>
-    </Container>
+    </Box>
   );
 }
 

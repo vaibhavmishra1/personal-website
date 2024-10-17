@@ -1,30 +1,19 @@
-// pages/Hobbies.js
+// WorkProfile.js
 import React from 'react';
-import { Container, Typography, List, ListItem, ListItemText } from '@mui/material';
-
-const hobbies = [
-  { name: 'Photography', description: 'Capturing moments through the lens.' },
-  { name: 'Coding', description: 'Building applications and solving problems.' },
-  // Add more hobbies
-];
+import { Typography, Box } from '@mui/material';
 
 function Hobbies() {
   return (
-    <Container sx={{ mt: 4 }}>
-      <Typography variant="h4" gutterBottom>
-        My Hobbies
+    <Box sx={{ color: '#fff' }}>
+      <Typography variant="h6">My Work Experience</Typography>
+      {/* Add your work experience content here */}
+      <Typography variant="body1">
+        - Data Scientist at XYZ Company
+        <br />
+        - AI Researcher at ABC Labs
+        {/* ...more content */}
       </Typography>
-      <List>
-        {hobbies.map((hobby, index) => (
-          <ListItem key={index} alignItems="flex-start">
-            <ListItemText
-              primary={hobby.name}
-              secondary={hobby.description}
-            />
-          </ListItem>
-        ))}
-      </List>
-    </Container>
+    </Box>
   );
 }
 

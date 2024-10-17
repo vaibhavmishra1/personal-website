@@ -2,7 +2,7 @@
 import React from 'react';
 import { Typography, Box } from '@mui/material';
 
-function WorkProfile() {
+function Resume() {
   return (
     <Box sx={{ color: '#fff' }}>
       <Typography variant="h6">My Work Experience</Typography>
@@ -17,4 +17,4 @@ function WorkProfile() {
   );
 }
 
-export default WorkProfile;
+export default Resume;
