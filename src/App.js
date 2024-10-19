@@ -18,7 +18,7 @@ function App() {
   return (
     <Router>
       {/* <Navbar /> */}
-      <main style={{ paddingTop: '100px' }}> {/* Add padding to prevent overlap */}
+      <main style={{ paddingTop: '0px' }}> {/* Add padding to prevent overlap */}
         <AnimatePresence mode="wait">
           <Routes>
             <Route path="/" element={<Home />} />

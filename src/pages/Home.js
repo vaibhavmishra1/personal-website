@@ -187,8 +187,8 @@ function Home() {
               sx={{
                 width: { xs: 150, sm: 200, md: 250 }, // Responsive sizes
                 height: { xs: 150, sm: 200, md: 250 },
-                mb: { xs: 4, sm: 6, md: 8 },
-                mt: { xs: -5, sm: -7, md: -10 },
+                mb: { xs: 2, sm: 4, md: 6 },
+                mt: { xs: 0, sm: 0, md: 0 },
                 boxShadow: '0 4px 8px rgba(0, 0, 0, 0.5)',
               }}
             />
@@ -222,10 +222,10 @@ function Home() {
           <Typography
               variant="body1"
               sx={{
-                mb: 3,
+                mb: 0,
                 lineHeight: 1.8,
                 maxWidth: { xs: '90%', sm: '80%', md: '1200px' }, // Responsive maxWidth
-                fontSize: { xs: '0.9rem', sm: '1rem', md: '1.1rem' }, // Responsive font sizes
+                fontSize: { xs: '0.5rem', sm: '0.7rem', md: '1.1rem' }, // Responsive font sizes
               }}
             >
               If there were a word to embody a tech enthusiast, a thinker, a maverick, and a creative spirit all at once, it would surely be my namesake. I engineer simplicity, crafting innovations that make life's complexities elegantly effortless.
