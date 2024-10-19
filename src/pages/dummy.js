@@ -50,12 +50,8 @@ function Home() {
     setSelectedItem(item);
   };
 
-  // The list of items
+  // The list of items without empty entries for better responsiveness
   const items = [
-    { title: '', component: null },
-    { title: '', component: null },
-    { title: '', component: null },
-    { title: '', component: null },
     { title: 'Work Profile', component: <WorkProfile /> },
     { title: 'My Resume', component: <Resume /> },
     { title: 'My Blogs', component: <Blogs /> },
@@ -63,14 +59,10 @@ function Home() {
     { title: 'Hobbies', component: <Hobbies /> },
     { title: 'Contact Me', component: <Contact /> },
     { title: 'Publications', component: <Publications /> },
-    { title: '', component: null },
-    { title: '', component: null },
-    { title: '', component: null },
-    { title: '', component: null },
   ];
 
   // State to track the item in focus
-  const [inFocusIndex, setInFocusIndex] = useState(6); // Start with fourth element (index 4)
+  const [inFocusIndex, setInFocusIndex] = useState(3); // Start with the fourth element (index 3)
 
   useEffect(() => {
     const listElement = listRef.current;
@@ -100,13 +92,13 @@ function Home() {
     const scrollToInitialItem = () => {
       if (listElement) {
         const listItems = Array.from(listElement.children);
-        const initialItem = listItems[6]; // Fourth element (index 4)
+        const initialItem = listItems[3]; // Fourth element (index 3)
 
         if (initialItem) {
-          const itemRect = initialItem.getBoundingClientRect();
+          // Calculate the position to center the initial item
           const listRect = listElement.getBoundingClientRect();
+          const itemRect = initialItem.getBoundingClientRect();
 
-          // Calculate the offset to center the fourth item
           const offset =
             initialItem.offsetTop -
             listElement.offsetTop -
@@ -115,7 +107,7 @@ function Home() {
 
           listElement.scrollTo({
             top: offset,
-            behavior: 'instant', // Use 'auto' or 'instant' to avoid animation on initial load
+            behavior: 'smooth', // Smooth scroll to initial item
           });
         }
       }
@@ -176,7 +168,7 @@ function Home() {
             justifyContent: 'center',
             alignItems: 'center',
             textAlign: 'center',
-            padding: { xs: '30px 20px', sm: '50px 40px' }, 
+            padding: { xs: '30px 20px', sm: '50px 40px' }, // Responsive padding
           }}
         >
           {/* Profile Picture */}
@@ -196,7 +188,7 @@ function Home() {
 
           {/* Header Section */}
           <motion.div initial="hidden" animate="visible" variants={fadeIn}>
-          <Typography
+            <Typography
               variant="h2"
               sx={{
                 mb: 2,
@@ -219,7 +211,7 @@ function Home() {
 
           {/* About Section */}
           <motion.div initial="hidden" animate="visible" variants={slideUp}>
-          <Typography
+            <Typography
               variant="body1"
               sx={{
                 mb: 3,
@@ -230,7 +222,7 @@ function Home() {
             >
               If there were a word to embody a tech enthusiast, a thinker, a maverick, and a creative spirit all at once, it would surely be my namesake. I engineer simplicity, crafting innovations that make life's complexities elegantly effortless.
 
-              When I'm not immersed in creation, my System 2—a nod to Daniel Kahneman's Thinking, Fast and Slow—ventures into the vast realms of intelligence. I ponder its origins and existence, the intricate dance between the biological and the artificial, its diverse forms and expressions, the interplay among different intelligences, and its infinite evolution across the tapestry of time.
+              When I'm not immersed in creation, my System 2—a nod to Daniel Kahneman's <i>Thinking, Fast and Slow</i>—ventures into the vast realms of intelligence. I ponder its origins and existence, the intricate dance between the biological and the artificial, its diverse forms and expressions, the interplay among different intelligences, and its infinite evolution across the tapestry of time.
 
               Meanwhile, I indulge my System 1—the intuitive, spontaneous self—with life's simple pleasures: the exhilaration of wind rushing past as I ride my bike, the soul-stirring melodies of great music, the invigorating rhythm of a volleyball game.
 
@@ -251,7 +243,7 @@ function Home() {
               transition={{ repeat: Infinity, duration: 1 }}
             >
               <IconButton onClick={handleScrollDown}>
-              <KeyboardArrowDownIcon
+                <KeyboardArrowDownIcon
                   sx={{
                     color: '#fff',
                     fontSize: { xs: 48, sm: 56, md: 64 }, // Responsive icon sizes
@@ -278,7 +270,7 @@ function Home() {
             alignItems: 'center',
           }}
         >
-           <Box
+          <Box
             sx={{
               width: { xs: '90%', sm: '80%', md: '100%' }, // Responsive widths
               maxWidth: { xs: '400px', sm: '600px', md: '1400px' }, // Responsive maxWidth
@@ -328,36 +320,56 @@ function Home() {
                 }}
               >
                 {items.map((item, index) => (
-                  <ListItem
-                    key={index}
-                    button={inFocusIndex === index} // Only the focused item is clickable
-                    onClick={() => inFocusIndex === index && handleItemClick(item)}
-                    sx={{
-                      justifyContent: 'center',
-                      textAlign: 'center',
-                      padding: { xs: '16px 0', sm: '20px 0', md: '24px 0' }, 
-                      scrollSnapAlign: 'center',
-                      cursor: inFocusIndex === index ? 'pointer' : 'default',
-                      transition: 'background-color 0.3s, color 0.3s',
-                      borderRadius: '4px',
-                      backgroundColor: inFocusIndex === index ? '#e0e0e0' : 'transparent',
-                      '&:hover': {
-                        backgroundColor: inFocusIndex === index ? '#d0d0d0' : 'transparent',
-                      },
-                    }}
-                  >
-                    <ListItemText
-                      primary={item.title}
-                      primaryTypographyProps={{
-                        variant: 'h6',
-                        sx: {
-                          fontSize: inFocusIndex === index ? '2rem' : '1.0rem',
-                          opacity: inFocusIndex === index ? 1 : 0.5, // Adjust opacity based on focus
-                          transition: 'font-size 0.3s, opacity 0.3s', // Smooth transition for size and opacity
+                  <React.Fragment key={index}>
+                    <ListItem
+                      button={inFocusIndex === index && item.component !== null} // Only focused & has component is clickable
+                      onClick={() => inFocusIndex === index && handleItemClick(item)}
+                      sx={{
+                        justifyContent: 'center',
+                        textAlign: 'center',
+                        padding: { xs: '16px 0', sm: '20px 0', md: '24px 0' }, // Responsive padding
+                        scrollSnapAlign: 'center',
+                        cursor: inFocusIndex === index && item.component !== null ? 'pointer' : 'default',
+                        transition: 'background-color 0.3s, color 0.3s',
+                        borderRadius: '4px',
+                        background:
+                          inFocusIndex === index && item.component !== null
+                            ? 'linear-gradient(135deg, #f6d365 0%, #fda085 100%)' // Focused & Clickable
+                            : item.component
+                            ? 'linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%)' // Non-Focused & Clickable
+                            : 'linear-gradient(135deg, #d3d3d3 0%, #c0c0c0 100%)', // Non-Clickable
+                        '&:hover': {
+                          background:
+                            inFocusIndex === index && item.component !== null
+                              ? 'linear-gradient(135deg, #e0b3d6 0%, #fcb3a2 100%)' // Hover for Focused & Clickable
+                              : 'linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%)', // No change for others
                         },
+                        opacity: item.component ? (inFocusIndex === index ? 1 : 0.5) : 0.5, // Adjust opacity
                       }}
-                    />
-                  </ListItem>
+                    >
+                      <ListItemText
+                        primary={item.title}
+                        primaryTypographyProps={{
+                          variant: 'h6',
+                          sx: {
+                            fontSize: { xs: '1.2rem', sm: '1.5rem', md: '2rem' }, // Responsive font sizes
+                            opacity: inFocusIndex === index ? 1 : 0.5, // Adjust opacity based on focus
+                            transition: 'font-size 0.3s, opacity 0.3s', // Smooth transition for size and opacity
+                          },
+                        }}
+                      />
+                    </ListItem>
+
+                    {/* Add Divider between items, except after the last item */}
+                    {index < items.length - 1 && item.title && (
+                      <Divider
+                        sx={{
+                          backgroundColor: '#ccc',
+                          margin: { xs: '8px 0', sm: '12px 0' }, // Responsive margin
+                        }}
+                      />
+                    )}
+                  </React.Fragment>
                 ))}
               </List>
             )}
