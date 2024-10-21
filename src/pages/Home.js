@@ -282,7 +282,7 @@ function Home() {
             sx={{
               width: { xs: '90%', sm: '80%', md: '100%' }, // Responsive widths
               maxWidth: { xs: '400px', sm: '600px', md: '1400px' }, // Responsive maxWidth
-              backgroundColor: '#fff', // White box
+              backgroundColor: '#000', // White box
               padding: { xs: '16px', sm: '24px', md: '32px' }, // Responsive padding
               borderRadius: { xs: '8px', sm: '12px', md: '16px' }, // Responsive border radius
               boxShadow: '0px 4px 20px rgba(0,0,0,0.2)',
@@ -340,9 +340,9 @@ function Home() {
                       cursor: inFocusIndex === index ? 'pointer' : 'default',
                       transition: 'background-color 0.3s, color 0.3s',
                       borderRadius: '4px',
-                      backgroundColor: inFocusIndex === index ? '#e0e0e0' : 'transparent',
+                      backgroundColor: inFocusIndex === index ? '#transparent' : 'transparent',
                       '&:hover': {
-                        backgroundColor: inFocusIndex === index ? '#d0d0d0' : 'transparent',
+                        backgroundColor: inFocusIndex === index ? '#0f0f0f' : 'transparent',
                       },
                     }}
                   >
@@ -352,6 +352,7 @@ function Home() {
                         variant: 'h6',
                         sx: {
                           fontSize: inFocusIndex === index ? '2rem' : '1.0rem',
+                          color: inFocusIndex === index ? '#fff' : '#fff',
                           opacity: inFocusIndex === index ? 1 : 0.5, // Adjust opacity based on focus
                           transition: 'font-size 0.3s, opacity 0.3s', // Smooth transition for size and opacity
                         },
