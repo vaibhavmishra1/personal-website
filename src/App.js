@@ -11,6 +11,7 @@ import Hobbies from './pages/Hobbies';
 import WorkProfile from './pages/WorkProfile';
 import Contact from './pages/Contact';
 import { AnimatePresence } from 'framer-motion';
+import Documentation from './pages/Documentation';
 
 import './App.css';
 
@@ -22,6 +23,7 @@ function App() {
         <AnimatePresence mode="wait">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/docs/*" element={<Documentation />} />
             <Route path="/about" element={<About />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/blog" element={<Blog />} />

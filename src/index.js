@@ -8,14 +8,30 @@ import './assets/styles.css';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#0d47a1', // Your preferred primary color
+      main: '#1a73e8', // Documentation-style blue
     },
     secondary: {
-      main: '#ff5722', // Your preferred secondary color
+      main: '#202124', // Dark gray for secondary elements
+    },
+    background: {
+      default: '#ffffff',
+      paper: '#f8f9fa',
     },
   },
   typography: {
-    fontFamily: 'Roboto, sans-serif',
+    fontFamily: 'Roboto, system-ui, -apple-system, sans-serif',
+    h1: {
+      fontSize: '2.5rem',
+      fontWeight: 600,
+    },
+    h2: {
+      fontSize: '2rem',
+      fontWeight: 500,
+    },
+    body1: {
+      fontSize: '1rem',
+      lineHeight: 1.7,
+    },
   },
 });
 

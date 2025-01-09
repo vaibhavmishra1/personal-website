@@ -4,3 +4,39 @@ body {
     margin: 0;
     padding: 0;
   }
+
+/* Documentation styles */
+.doc-content {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #202124;
+}
+
+.doc-content pre {
+  background-color: #f8f9fa;
+  padding: 16px;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+.doc-content code {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 14px;
+  padding: 2px 4px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+
+.doc-content h1, .doc-content h2, .doc-content h3 {
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+.doc-content a {
+  color: #1a73e8;
+  text-decoration: none;
+}
+
+.doc-content a:hover {
+  text-decoration: underline;
+}
