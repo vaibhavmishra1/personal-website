@@ -14,8 +14,18 @@ const experiences = [
 
 function WorkProfile() {
   return (
-    <Container sx={{ mt: 4 }}>
-      <Typography variant="h4" gutterBottom>
+    <Box sx={{ width: '100%' }}>
+      <Typography 
+        variant="h2" 
+        component="h1" 
+        sx={{ 
+          mb: 4,  // margin bottom
+          fontWeight: 600,  // make it bold
+          color: 'primary.main',  // use your theme's primary color
+          textAlign: 'left',  // align left
+          fontSize: { xs: '2rem', md: '2.5rem' },  // responsive font size
+        }}
+      >
         Work Profile
       </Typography>
       {experiences.map((exp, index) => (
@@ -25,7 +35,7 @@ function WorkProfile() {
           <Typography variant="body1">{exp.description}</Typography>
         </Box>
       ))}
-    </Container>
+    </Box>
   );
 }
 
