@@ -23,7 +23,7 @@ function Home() {
       {/* Hero Section */}
       <Box sx={{ mb: 6, maxWidth: '800px', mx: 'auto' }}>
         <Typography variant="h2" gutterBottom align="center">
-          VAIBHAV MISHRA
+          VAIBHAV 
         </Typography>
         <Typography variant="h6" color="text.secondary" sx={{ mb: 4 }} align="center">
           MultiModal AI | Agentic AI for Games | Graph Theory | Computer Vision | NLP | Large Foundation Models
